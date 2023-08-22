@@ -30,7 +30,7 @@ for message in st.session_state["messages"]:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-o
+
 # initialize model
 if "model" not in st.session_state:
     st.session_state.model = "gpt-3.5-turbo"
