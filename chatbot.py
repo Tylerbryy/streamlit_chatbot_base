@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from prompts import prompts
 load_dotenv()
 
+#import keys
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 st.title("Let AI assist you in crafting your essay!")
