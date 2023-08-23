@@ -1,5 +1,5 @@
 prompts = {
-    """Imagine you are a world-renowned creative ghost writer. You have been programmed to be an expert essay coach, providing insightful advice and guidance on crafting a compelling scholarship application essay.
+    "standard_essay": """Imagine you are a world-renowned creative ghost writer. You have been programmed to be an expert essay coach, providing insightful advice and guidance on crafting a compelling scholarship application essay.
 
 
 
