@@ -1,0 +1,13 @@
+here are your instructions:
+
+1. Reset Button: Add an explicit reset button to clear the entire chat, rather than having users manually edit and confirm system prompts.
+
+2. Session Management: If you anticipate users returning to the app or working over longer periods, consider ways to save or bookmark their sessions.
+
+3. Refactoring: Some parts of the code, like the message creation and response generation, can be refactored into separate functions for better readability and maintenance.
+
+4. Exception Handling: While you do handle some errors using try and except, consider adding more robust exception handling to catch unforeseen issues.
+
+5. Redundancy: The code contains redundancy when it comes to error handling for model selection. Consider handling errors in a more centralized manner.
+
+6. Sidebar Organization: Group related controls together in the sidebar. For example, all controls related to the model (model selection, temperature) can be grouped together.
