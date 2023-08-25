@@ -8,6 +8,9 @@ load_dotenv()
 #import keys
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
+# Display company logo at the top
+st.image("assets\\Scholarlyst_Logo-transformed.png")
+
 st.title("Hey, let me assist you on crafting your essay.")
 
 # Load available standards
@@ -117,3 +120,8 @@ if user_prompt := st.chat_input("Send a message"):
                 mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                 file_name="essay.txt"
             )
+
+
+
+
+
