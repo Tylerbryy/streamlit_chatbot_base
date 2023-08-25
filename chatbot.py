@@ -9,7 +9,7 @@ load_dotenv()
 openai.api_key = os.environ["OPENAI_API_KEY"]
 
 # Display company logo at the top
-st.image("assets\\Scholarlyst_Logo-transformed.png")
+st.image("assets/Scholarlyst_Logo-transformed.png")
 
 st.title("Hey, let me assist you on crafting your essay.")
 
