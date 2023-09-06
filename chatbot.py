@@ -3,7 +3,7 @@ import openai
 import os
 from dotenv import load_dotenv
 from prompts import prompts
-load_dotenv()
+load_dotenv(override=True)
 
 #import keys
 openai.api_key = os.environ["OPENAI_API_KEY"]
@@ -46,10 +46,14 @@ with st.sidebar:
     models = ["gpt-3.5-turbo", "gpt-4"]
     if "model" not in st.session_state:
         st.session_state.model = models[0]
+
     try:
+        # This is where the user selects the model
         st.session_state.model = st.selectbox("Choose a model", models, index=models.index(st.session_state.model))
-    except openai.error.InvalidRequestError:
-        st.error("The model you selected does not exist or you do not have access to it. Please select a different model.")
+    except openai.error.InvalidRequestError as e:
+        # If an error occurs, display it
+        st.error(f"The model you selected does not exist or you do not have access to it. Error details: {e}")
+
 
     # Adding the temperature slider
     temperature = st.slider("Temperature", 0.0, 1.0, 0.7, 0.05)
