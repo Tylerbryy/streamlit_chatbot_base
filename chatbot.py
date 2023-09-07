@@ -66,39 +66,16 @@ with st.sidebar:
 if "messages" not in st.session_state:
     st.session_state.messages = [{"role": "system", "content": system_prompt}]
 
-if selected_standard == 'standard_essay':
-    st.session_state.messages = [{"role": "system", "content": system_prompt}]
+# Auto greet the user when they first load the website
+if "greeted" not in st.session_state:
     st.session_state.greeted = True
-    if st.session_state.messages[-1]["role"] == "assistant":
-        st.session_state.messages.pop()
     st.session_state.messages.append({"role": "assistant", "content": "Hello, I'm here to help you write a winning scholarship essay. I will be guiding you through the process of crafting a compelling essay that will impress the scholarship committee. Are you ready to get started?"})
-elif selected_standard == 'thesis_prompt':
-    st.session_state.messages = [{"role": "system", "content": system_prompt}]
-    st.session_state.greeted = True
-    if st.session_state.messages[-1]["role"] == "assistant":
-        st.session_state.messages.pop()
-    st.session_state.messages.append({"role": "assistant", "content": "Can you please provide me with the name of the scholarship and any information you have about the organization or institution offering it? Additionally, do you have any details about the scholarship's mission, values, or focus areas?"})
-else:
-    if st.session_state.messages[-1]["role"] == "assistant":
-        st.session_state.messages.pop()
-
-
-    
 
 for message in st.session_state["messages"]:
     if message["role"] != "system":
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-
-#for testing the output of the API           
-# import json            
-# with open('chatlog.json', 'w') as f:
-#     json.dump(st.session_state["messages"], f)
-    
-    
-    
-    
 # user input
 if user_prompt := st.chat_input("Send a message"):
     st.session_state.messages.append({"role": "user", "content": user_prompt})
@@ -147,8 +124,6 @@ if user_prompt := st.chat_input("Send a message"):
                 mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                 file_name="essay.txt"
             )
-
-
 
 
 
